@@ -5,4 +5,4 @@ Instalação: npm install
 Para iniciar o server: npm start
 
 
-Libs utilizadas: Material UI (estilização) , React Router (Rotas) e @Commerce (sistema de ecommerce). 
+Libs utilizadas: Material UI (estilização) , React Router (Rotas) e @Commerce (API para sistema de ecommerce). 
