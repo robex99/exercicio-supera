@@ -3,3 +3,6 @@ Instruções de instalação e inicialização Faça o clone deste repositório.
 Instalação: npm install
 
 Para iniciar o server: npm start
+
+
+Libs utilizadas: Material UI (estilização) , React Router (Rotas) e @Commerce (sistema de ecommerce). 
