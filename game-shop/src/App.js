@@ -1,14 +1,12 @@
-import React from 'react'
-import Products from './components/Products/Products'
-import Navbar from './components/Navbar/Navbar'
+import React, { useState } from 'react'
+import Router from './routers/Router'
 
 export default function App() {
+
+  const [products, setProducts] = useState([]);
+
   return (
-    <div>
-      <Products/>
-      <Navbar/>
-      
-    </div>
+    <Router/>
   )
 }
 
