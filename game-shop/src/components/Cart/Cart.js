@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Typography, Button, Grid} from '@material-ui/core';
 import useStyles from './styles'
@@ -6,6 +6,7 @@ import CartItem from './CartItem/CartItem'
 
 export default function Cart({ cart, handleUpdateCartQty, handleEmptyCart, handleRemoveFromCart }) {
     const classes = useStyles();
+    const [frete, setFrete] = useState(0)
 
     const EmptyCart = () => {
         return (
@@ -20,6 +21,7 @@ export default function Cart({ cart, handleUpdateCartQty, handleEmptyCart, handl
        
     }
 
+
     const FilledCart = () => {
         return (
 <div>
@@ -32,9 +34,17 @@ export default function Cart({ cart, handleUpdateCartQty, handleEmptyCart, handl
                 ))}
             </main>
             <div className={classes.cardDetails}>
-                <Typography variant="h4">
-                    Total: {cart.subtotal.formatted_with_symbol}
+                <Typography variant="h5">
+                    Produtos: {cart.subtotal.formatted_with_symbol}
                 </Typography>
+                <Typography variant="h5">
+                    Frete: R${frete}{  cart.subtotal.raw < 249 ? setFrete(cart.total_items * 10) : setFrete(0)}   
+                </Typography>
+                <Typography variant="h5">
+                    Total: R${frete + cart.subtotal.raw}   
+                </Typography>
+                
+                
                 <div>
                     <Button className={classes.emptyButton} onClick={handleEmptyCart} size='large' type="button" variant="contained" color="secondary">
                         Limpar carrinho
@@ -50,6 +60,8 @@ export default function Cart({ cart, handleUpdateCartQty, handleEmptyCart, handl
     }
 
     if(!cart.line_items) return 'Carregando carrinho...';
+
+
 
     return (
         <Container>
